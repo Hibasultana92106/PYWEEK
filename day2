@@ -1,0 +1,32 @@
+contacts = []
+
+def Home ():
+    name = input ("Enter Name : ")
+    number = input("Enter number : ")
+    contacts.append((name, number))
+
+    def save_contact ():
+        with open ("contacts.txt","a") as file:
+            name, number = contacts
+            file.write("| ")
+            file.write(name+" ")
+            file.write(number)
+            file.write("\n")
+            save_contact()
+
+def read_contacts():
+    with open ("contacts. txt","r") as file:
+        contacts = file.read()
+        print(contacts)
+
+            
+print("Contact Systems")
+print("\n 01. \n Add In 02. Read \n 03. Exit ")
+opt = input("Select the options :")
+
+if opt == '1':
+    Home ( )
+elif opt == '2':
+    read_contacts()
+else:
+    print("select correct option !!")
